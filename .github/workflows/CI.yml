@@ -1,6 +1,9 @@
 name: CI
 
 on:
+  push:
+    branches:
+      - master
   workflow_dispatch:
 env:
   IMAGE_NAME: examplenode-dev
@@ -32,4 +35,3 @@ jobs:
         repository: ${{ github.actor }}/argocd-node-app-config
         event-type: new-image
         client-payload: '{"image": "${{ github.actor }}/${{ env.IMAGE_NAME }}:${{ github.run_number }}"}'
-        
